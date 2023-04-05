@@ -1,47 +1,26 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
 
 pip install opencv-python
 
 
-# In[2]:
-
-
 import cv2
-
-
-# In[3]:
 
 
 import numpy as np
 import pandas as pd
 
 
-# In[6]:
-
 
 img = cv2.imread("C:\\Users\\Devashree\\Desktop\\T2I_b.png")
 imS = cv2.resize(img, (960, 540)) 
-
-
-# In[7]:
 
 
 index=["color", "color_name", "hex", "R", "G", "B"]
 csv = pd.read_csv('C:\\Users\\Devashree\\Desktop\\colors.csv', names=index, header=None)
 
 
-# In[8]:
-
 
 clicked = False
 r = g = b = xpos = ypos = 0
-
-
-# In[9]:
 
 
 def recognize_color(R,G,B):
@@ -54,7 +33,6 @@ def recognize_color(R,G,B):
     return cname
 
 
-# In[10]:
 
 
 def mouse_click(event, x, y, flags, param):
@@ -69,19 +47,14 @@ def mouse_click(event, x, y, flags, param):
         r = int(r)
 
 
-# In[11]:
-
-
 cv2.namedWindow('Color Recognition App')
 
 
-# In[12]:
 
 
 cv2.setMouseCallback('Color Recognition App', mouse_click)
 
 
-# In[13]:
 
 
 while(1):
@@ -102,16 +75,6 @@ while(1):
     if cv2.waitKey(20) & 0xFF ==27:
         break
 cv2.destroyAllWindows()
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
 
 
 
